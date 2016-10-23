@@ -24,6 +24,7 @@ body {
       height: 100%;
       background-color: rgba(0, 0, 0, 0.4); }
     .home .mask .cover {
+      display: block;
       width: 100%;
       height: 300px;
       position: absolute;
@@ -33,14 +34,6 @@ body {
       bottom: 0;
       margin: auto; }
 
-@keyframes typing {
-  from {
-    width: 0; } }
-
-@keyframes caret {
-  50% {
-    border-right-color: transparent; } }
-
 .cover h1 {
   display: block;
   width: 600px;
@@ -49,15 +42,7 @@ body {
   position: relative;
   left: 100px;
   color: #fff;
-  font-size: 40px;
-  /*font: bold 200% Consolas, Monaco, monospace;
-  !*width: 8.25em;*!
-  width: 30ch;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: .05em solid;
-  animation: typing 8s steps(15),
-  caret 1s steps(1) infinite;*/ }
+  font-size: 40px; }
 
 .cover span {
   display: block;
@@ -84,12 +69,14 @@ body {
 
 .about {
   width: 100%;
-  height: 671px;
+  min-height: 671px;
+  height: auto;
   background: #f3f3f3;
   margin: 0 auto; }
   .about .container {
     max-width: 1170px;
-    height: 671px;
+    min-height: 671px;
+    height: auto;
     margin: 0 auto;
     position: relative; }
     .about .container .top {
@@ -99,15 +86,19 @@ body {
       position: relative; }
     .about .container .bottom {
       width: 100%;
-      height: 350px;
+      max-width: 1170px;
+      height: auto;
+      background: red;
       display: inline-block;
-      text-align: justify; }
-      .about .container .bottom::after {
-        content: '';
-        width: 100%;
-        height: 10px;
-        backgroud: red;
-        display: inline-block; }
+      text-align: justify;
+      /* &::after{
+        content:'';
+        width:100%;
+        height:10px;
+        background: blue;
+        display:inline-block;
+
+      }*/ }
 
 .top h3 {
   display: block;
@@ -145,22 +136,25 @@ body {
   margin: auto;
   margin-bottom: 125px; }
 
-.bottom .iconbox {
-  width: 23%;
+.about .bottom .iconbox {
+  width: 25%;
   height: auto;
   display: inline-block;
   background: #f3f3f3;
-  min-width: 212px; }
-  .bottom .iconbox .newbox {
-    width: auto;
+  padding: 0 10px;
+  box-sizing: border-box;
+  float: left; }
+  .about .bottom .iconbox .newbox {
+    width: 100%;
     height: auto;
     padding: 40px 20px;
-    background: #fff; }
-    .bottom .iconbox .newbox .box1 {
+    background: #fff;
+    box-sizing: border-box; }
+    .about .bottom .iconbox .newbox .box1 {
       width: 100%;
       height: 50px;
       position: relative; }
-      .bottom .iconbox .newbox .box1 .jp {
+      .about .bottom .iconbox .newbox .box1 .jp {
         width: 32px;
         height: 32px;
         background: url("../img/jp.png") no-repeat center center;
@@ -171,7 +165,7 @@ body {
         bottom: 0;
         top: 0;
         margin: auto; }
-      .bottom .iconbox .newbox .box1 .mb {
+      .about .bottom .iconbox .newbox .box1 .mb {
         width: 32px;
         height: 32px;
         background: url("../img/mb.png") no-repeat center center;
@@ -182,7 +176,7 @@ body {
         bottom: 0;
         top: 0;
         margin: auto; }
-      .bottom .iconbox .newbox .box1 .pt {
+      .about .bottom .iconbox .newbox .box1 .pt {
         width: 32px;
         height: 32px;
         background: url("../img/pt.png") no-repeat center center;
@@ -193,7 +187,7 @@ body {
         bottom: 0;
         top: 0;
         margin: auto; }
-      .bottom .iconbox .newbox .box1 .wh {
+      .about .bottom .iconbox .newbox .box1 .wh {
         width: 32px;
         height: 32px;
         background: url("../img/wh.png") no-repeat center center;
@@ -204,7 +198,7 @@ body {
         bottom: 0;
         top: 0;
         margin: auto; }
-    .bottom .iconbox .newbox span {
+    .about .bottom .iconbox .newbox span {
       display: block;
       width: 100%;
       height: 20px;
@@ -212,11 +206,11 @@ body {
       line-height: 20px;
       text-align: center;
       color: #000; }
-    .bottom .iconbox .newbox .xinxi {
+    .about .bottom .iconbox .newbox .xinxi {
       width: 100%;
       height: auto;
       padding-top: 20px; }
-      .bottom .iconbox .newbox .xinxi span {
+      .about .bottom .iconbox .newbox .xinxi span {
         width: 100%;
         height: 24px;
         font-size: 14px;
@@ -239,7 +233,7 @@ body {
       position: relative; }
       .works .container .top h3 {
         display: block;
-        width: 240px;
+        width: 230px;
         height: 40px;
         position: absolute;
         left: 50%;
@@ -249,7 +243,7 @@ body {
         font-weight: normal; }
       .works .container .top span {
         display: block;
-        width: 380px;
+        width: 360px;
         height: 40px;
         font-size: 20px;
         color: #4a4a4a;
@@ -272,17 +266,10 @@ body {
         margin-bottom: 125px; }
     .works .container .bottom {
       width: 100%;
+      max-width: 1170px;
       height: auto;
       background: #fff;
-      display: inline-block;
-      text-align: justify;
-      /*&::before{
-        content:'';
-        width:100%;
-        display:inline-block;
-        height:10px;
-        background:red;
-      }*/ }
+      display: block; }
       .works .container .bottom .botbox {
         width: 100%;
         height: 225px;
@@ -292,6 +279,7 @@ body {
         .works .container .bottom .botbox::after {
           content: '';
           width: 100%;
+          height: 2px;
           display: inline-block; }
       .works .container .bottom .foot {
         width: 30%;
@@ -299,15 +287,8 @@ body {
         padding: 20px 10px;
         display: inline-block; }
         .works .container .bottom .foot .footbox {
-          /* width:360px;
-          height:225px;*/
           width: 100%;
           height: 100%;
-          padding: 10px 10px;
-          /*&:hover{
-            a{
-              font-size:40px;
-            }*/
           position: relative; }
           .works .container .bottom .foot .footbox h3 {
             width: 100%;
@@ -373,10 +354,7 @@ body {
             font-size: 18px;
             color: #fff;
             text-align: center;
-            transition: font-size 0.8s ease;
-            /*&:hover{
-                font-size:30px;
-              }*/ }
+            transition: font-size 0.8s ease; }
           .works .container .bottom .foot .lxr .maskbox {
             width: 100%;
             height: 100%;
@@ -395,10 +373,7 @@ body {
             font-size: 18px;
             color: #fff;
             text-align: center;
-            transition: font-size 0.8s ease;
-            /* &:hover{
-                font-size:30px;
-            }*/ }
+            transition: font-size 0.8s ease; }
           .works .container .bottom .foot .tm .maskbox {
             width: 100%;
             height: 100%;
@@ -417,10 +392,7 @@ body {
             font-size: 18px;
             color: #fff;
             text-align: center;
-            transition: font-size 0.8s ease;
-            /*&:hover{
-                font-size:40px;
-              }*/ }
+            transition: font-size 0.8s ease; }
           .works .container .bottom .foot .yt .maskbox {
             width: 100%;
             height: 100%;
@@ -439,10 +411,7 @@ body {
             font-size: 18px;
             color: #fff;
             text-align: center;
-            transition: font-size 0.8s ease;
-            /* &:hover{
-                font-size:40px;
-              }*/ }
+            transition: font-size 0.8s ease; }
           .works .container .bottom .foot .pg .maskbox {
             width: 100%;
             height: 100%;
@@ -461,10 +430,7 @@ body {
             font-size: 18px;
             color: #fff;
             text-align: center;
-            transition: font-size 0.8s ease;
-            /*&:hover{
-                font-size:40px;
-              }*/ }
+            transition: font-size 0.8s ease; }
           .works .container .bottom .foot .yy .maskbox {
             width: 100%;
             height: 100%;
@@ -483,10 +449,7 @@ body {
             font-size: 18px;
             color: #fff;
             text-align: center;
-            transition: font-size 0.8s ease;
-            /*  &:hover{
-                font-size:40px;
-              }*/ }
+            transition: font-size 0.8s ease; }
           .works .container .bottom .foot .wzq .maskbox {
             width: 100%;
             height: 100%;
@@ -505,10 +468,7 @@ body {
             font-size: 18px;
             color: #fff;
             text-align: center;
-            transition: font-size 0.8s ease;
-            /* &:hover{
-                font-size:40px;
-              }*/ }
+            transition: font-size 0.8s ease; }
           .works .container .bottom .foot .pk .maskbox {
             width: 100%;
             height: 100%;
@@ -527,11 +487,65 @@ body {
             font-size: 18px;
             color: #fff;
             text-align: center;
-            transition: font-size 0.8s ease;
-            /* &:hover{
-               font-size:40px;
-             }*/ }
+            transition: font-size 0.8s ease; }
           .works .container .bottom .foot .ps .maskbox {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); }
+        .works .container .bottom .foot .tmxys {
+          width: 100%;
+          height: 100%;
+          background: url("../img/tmxys.jpg") no-repeat center center;
+          background-size: cover; }
+          .works .container .bottom .foot .tmxys a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            line-height: 225px;
+            font-size: 18px;
+            color: #fff;
+            text-align: center;
+            transition: font-size 0.8s ease; }
+          .works .container .bottom .foot .tmxys .maskbox {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); }
+        .works .container .bottom .foot .icloud {
+          width: 100%;
+          height: 100%;
+          background: url("../img/icloud.jpg") no-repeat center center;
+          background-size: cover; }
+          .works .container .bottom .foot .icloud a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            line-height: 225px;
+            font-size: 18px;
+            color: #fff;
+            text-align: center;
+            transition: font-size 0.8s ease; }
+          .works .container .bottom .foot .icloud .maskbox {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); }
+        .works .container .bottom .foot .todolist {
+          width: 100%;
+          height: 100%;
+          background: url("../img/td.jpg") no-repeat center center;
+          background-size: cover; }
+          .works .container .bottom .foot .todolist a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            line-height: 225px;
+            font-size: 18px;
+            color: #fff;
+            text-align: center;
+            transition: font-size 0.8s ease; }
+          .works .container .bottom .foot .todolist .maskbox {
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.5); }
@@ -562,7 +576,7 @@ body {
         font-weight: normal; }
       .skill .container .top span {
         display: block;
-        width: 380px;
+        width: 360px;
         height: 40px;
         font-size: 20px;
         color: #4a4a4a;
@@ -585,7 +599,7 @@ body {
         margin-bottom: 125px; }
     .skill .container .bottom {
       width: 100%;
-      max-width: 1120px;
+      max-width: 1170px;
       height: auto; }
       .skill .container .bottom .j1, .skill .container .bottom .j2, .skill .container .bottom .j3, .skill .container .bottom .j4, .skill .container .bottom .j5, .skill .container .bottom .j6, .skill .container .bottom .j7, .skill .container .bottom .j8 {
         /* position:absolute;
@@ -670,11 +684,11 @@ body {
       position: relative; }
       .self .container .top h3 {
         display: block;
-        width: 400px;
+        width: 358px;
         height: 40px;
         position: absolute;
         left: 50%;
-        margin-left: -160px;
+        margin-left: -179px;
         font-size: 40px;
         color: #fc6c6b;
         font-weight: normal; }
@@ -802,18 +816,49 @@ body {
   width: 100%;
   height: 50px;
   background: rgba(0, 0, 0, 0.8);
-  position: fixed;
-  left: 0;
-  transform: translateY(-100px);
+  position: relative;
   z-index: 2; }
   .tou .touinner {
     max-width: 1170px;
     height: 100%;
     position: relative;
     margin: 0 auto; }
+    .tou .touinner .toubox1 {
+      display: none;
+      width: 32px;
+      height: 32px;
+      background: url("../img/cd.png") no-repeat center center;
+      background-size: 32px 32px;
+      position: absolute;
+      right: 10px;
+      top: 9px; }
+    .tou .touinner .tbox {
+      display: none;
+      z-index: 988;
+      width: 200px;
+      height: 250px;
+      position: absolute;
+      right: 0;
+      top: 50px;
+      background: rgba(0, 0, 0, 0.8); }
+      .tou .touinner .tbox span {
+        display: block;
+        width: 100%;
+        height: 50px;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 16px;
+        line-height: 50px;
+        transition: color 0.8s ease;
+        cursor: pointer;
+        text-align: center; }
+        .tou .touinner .tbox span:hover {
+          color: white; }
+      .tou .touinner .tbox .active {
+        color: white; }
     .tou .touinner .toubox {
       width: 50%;
       height: 100%;
+      padding: 0 20px;
       position: absolute;
       right: 0;
       display: inline-block;
@@ -835,3 +880,516 @@ body {
         width: 100%;
         background: red;
         display: inline-block; }
+
+.aboutbottom {
+  display: none;
+  width: 100%;
+  max-width: 800px;
+  min-height: 580px;
+  height: auto;
+  margin: 0 auto; }
+  .aboutbottom .iconbox {
+    width: 50%;
+    height: auto;
+    display: inline-block;
+    background: #f3f3f3;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    float: left; }
+    .aboutbottom .iconbox .newbox {
+      width: 100%;
+      height: auto;
+      padding: 40px 20px;
+      background: #fff;
+      box-sizing: border-box; }
+      .aboutbottom .iconbox .newbox .box1 {
+        width: 100%;
+        height: 50px;
+        position: relative; }
+        .aboutbottom .iconbox .newbox .box1 .jp {
+          width: 32px;
+          height: 32px;
+          background: url("../img/jp.png") no-repeat center center;
+          background-size: 32px 32px;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          top: 0;
+          margin: auto; }
+        .aboutbottom .iconbox .newbox .box1 .mb {
+          width: 32px;
+          height: 32px;
+          background: url("../img/mb.png") no-repeat center center;
+          background-size: 32px 32px;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          top: 0;
+          margin: auto; }
+        .aboutbottom .iconbox .newbox .box1 .pt {
+          width: 32px;
+          height: 32px;
+          background: url("../img/pt.png") no-repeat center center;
+          background-size: 32px 32px;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          top: 0;
+          margin: auto; }
+        .aboutbottom .iconbox .newbox .box1 .wh {
+          width: 32px;
+          height: 32px;
+          background: url("../img/wh.png") no-repeat center center;
+          background-size: 32px 32px;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          top: 0;
+          margin: auto; }
+      .aboutbottom .iconbox .newbox span {
+        display: block;
+        width: 100%;
+        height: 20px;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+        color: #000; }
+      .aboutbottom .iconbox .newbox .xinxi {
+        width: 100%;
+        height: auto;
+        padding-top: 20px; }
+        .aboutbottom .iconbox .newbox .xinxi span {
+          width: 100%;
+          height: 24px;
+          font-size: 14px;
+          color: #999;
+          line-height: 24px;
+          text-align: center; }
+
+.aboutbottom1 {
+  display: none;
+  width: 100%;
+  max-width: 600px;
+  min-height: 1080px;
+  height: auto;
+  margin: 0 auto; }
+  .aboutbottom1 .iconbox {
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    background: #f3f3f3;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    float: left; }
+    .aboutbottom1 .iconbox .newbox {
+      width: 100%;
+      height: auto;
+      padding: 40px 20px;
+      background: #fff;
+      box-sizing: border-box; }
+      .aboutbottom1 .iconbox .newbox .box1 {
+        width: 100%;
+        height: 50px;
+        position: relative; }
+        .aboutbottom1 .iconbox .newbox .box1 .jp {
+          width: 32px;
+          height: 32px;
+          background: url("../img/jp.png") no-repeat center center;
+          background-size: 32px 32px;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          top: 0;
+          margin: auto; }
+        .aboutbottom1 .iconbox .newbox .box1 .mb {
+          width: 32px;
+          height: 32px;
+          background: url("../img/mb.png") no-repeat center center;
+          background-size: 32px 32px;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          top: 0;
+          margin: auto; }
+        .aboutbottom1 .iconbox .newbox .box1 .pt {
+          width: 32px;
+          height: 32px;
+          background: url("../img/pt.png") no-repeat center center;
+          background-size: 32px 32px;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          top: 0;
+          margin: auto; }
+        .aboutbottom1 .iconbox .newbox .box1 .wh {
+          width: 32px;
+          height: 32px;
+          background: url("../img/wh.png") no-repeat center center;
+          background-size: 32px 32px;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          top: 0;
+          margin: auto; }
+      .aboutbottom1 .iconbox .newbox span {
+        display: block;
+        width: 100%;
+        height: 20px;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+        color: #000; }
+      .aboutbottom1 .iconbox .newbox .xinxi {
+        width: 100%;
+        height: auto;
+        padding-top: 20px; }
+        .aboutbottom1 .iconbox .newbox .xinxi span {
+          width: 100%;
+          height: 24px;
+          font-size: 14px;
+          color: #999;
+          line-height: 24px;
+          text-align: center; }
+
+.worksbottom {
+  display: none;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  background: #fff;
+  margin: 0 auto; }
+  .worksbottom .foot {
+    width: 100%;
+    height: 225px;
+    padding: 20px 0; }
+    .worksbottom .foot .footbox {
+      width: 100%;
+      height: 100%;
+      position: relative; }
+      .worksbottom .foot .footbox h3 {
+        width: 100%;
+        height: 30px;
+        color: #fff;
+        font-size: 14px;
+        position: absolute;
+        top: 50px;
+        text-align: center;
+        display: none; }
+    .worksbottom .foot span {
+      width: 100px;
+      height: auto;
+      text-align: center; }
+    .worksbottom .foot .span {
+      animation: spanmove 0.8s ease both; }
+
+@keyframes spanmove {
+  0% {
+    transform: translateY(0px); }
+  100% {
+    transform: translateY(-20px); } }
+    .worksbottom .foot .spanleave {
+      animation: leave 0.8s ease both; }
+
+@keyframes leave {
+  0% {
+    transform: translateY(-20px); }
+  100% {
+    transform: translateY(0px); } }
+    .worksbottom .foot .pg, .worksbottom .foot .tm, .worksbottom .foot .lxr, .worksbottom .foot .yt, .worksbottom .foot .yy, .worksbottom .foot .pk, .worksbottom .foot .wzq, .worksbottom .foot .tcs, .worksbottom .foot .ps, .worksbottom .foot .tmxys, .worksbottom .foot .icloud, .worksbottom .foot .todolist {
+      width: 100%;
+      height: 100%;
+      background-size: cover; }
+      .worksbottom .foot .pg a, .worksbottom .foot .tm a, .worksbottom .foot .lxr a, .worksbottom .foot .yt a, .worksbottom .foot .yy a, .worksbottom .foot .pk a, .worksbottom .foot .wzq a, .worksbottom .foot .tcs a, .worksbottom .foot .ps a, .worksbottom .foot .tmxys a, .worksbottom .foot .icloud a, .worksbottom .foot .todolist a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        line-height: 225px;
+        font-size: 18px;
+        color: #fff;
+        text-align: center; }
+      .worksbottom .foot .pg .maskbox, .worksbottom .foot .tm .maskbox, .worksbottom .foot .lxr .maskbox, .worksbottom .foot .yt .maskbox, .worksbottom .foot .yy .maskbox, .worksbottom .foot .pk .maskbox, .worksbottom .foot .wzq .maskbox, .worksbottom .foot .tcs .maskbox, .worksbottom .foot .ps .maskbox, .worksbottom .foot .tmxys .maskbox, .worksbottom .foot .icloud .maskbox, .worksbottom .foot .todolist .maskbox {
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); }
+    .worksbottom .foot .pg {
+      background: url("../img/pg.jpg") no-repeat center center; }
+    .worksbottom .foot .tm {
+      background: url("../img/tm.jpg") no-repeat center center; }
+    .worksbottom .foot .lxr {
+      background: url("../img/lxr.jpg") no-repeat center center; }
+    .worksbottom .foot .yt {
+      background: url("../img/yt.jpg") no-repeat center center; }
+    .worksbottom .foot .yy {
+      background: url("../img/yy.jpg") no-repeat center center; }
+    .worksbottom .foot .pk {
+      background: url("../img/pk.jpg") no-repeat center center; }
+    .worksbottom .foot .wzq {
+      background: url("../img/wzq.jpg") no-repeat center center; }
+    .worksbottom .foot .tcs {
+      background: url("../img/tcs.jpg") no-repeat center center; }
+    .worksbottom .foot .ps {
+      background: url("../img/ps.jpg") no-repeat center center; }
+    .worksbottom .foot .tmxys {
+      background: url("../img/tmxys.jpg") no-repeat center center; }
+    .worksbottom .foot .icloud {
+      background: url("../img/icloud.jpg") no-repeat center center; }
+    .worksbottom .foot .todolist {
+      background: url("../img/td.jpg") no-repeat center center; }
+
+.skillbottom {
+  display: none;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  margin: 0 auto; }
+  .skillbottom .bottombox {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    display: inline-block;
+    text-align: justify;
+    position: relative; }
+    .skillbottom .bottombox::after {
+      content: '';
+      width: 100%;
+      height: 20px;
+      display: inline-block; }
+  .skillbottom .jineng {
+    width: 50%;
+    height: auto;
+    padding: 10px 0;
+    position: relative;
+    display: inline-block;
+    float: left; }
+    .skillbottom .jineng .circle {
+      width: 140px;
+      height: 140px;
+      border: 10px solid #fc6c6b;
+      border-radius: 50%;
+      margin: 0 auto; }
+      .skillbottom .jineng .circle span {
+        display: block;
+        width: 140px;
+        height: 140px;
+        font-size: 22px;
+        color: #000;
+        line-height: 140px;
+        text-align: center;
+        font-family: sans-serif; }
+    .skillbottom .jineng ul {
+      display: none;
+      width: 160px;
+      height: 160px;
+      background: rgba(49, 49, 49, 0.8);
+      position: absolute;
+      top: 10px;
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+      border-radius: 50%; }
+      .skillbottom .jineng ul li {
+        color: #fff;
+        font-size: 2px;
+        font-family: sans-serif; }
+
+.selfbottom {
+  display: none;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto; }
+  .selfbottom .bbox {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    text-align: justify;
+    display: inline-block; }
+    .selfbottom .bbox span {
+      padding: 10px 20px;
+      width: 60%;
+      height: auto;
+      position: absolute;
+      left: 0;
+      font-size: 15px;
+      line-height: 30px;
+      color: #666;
+      display: inline-block; }
+    .selfbottom .bbox .pic {
+      width: 20%;
+      height: auto;
+      height: 200px;
+      padding: 10px 20px;
+      position: absolute;
+      right: 0;
+      background: url("../img/me1.png") no-repeat center center;
+      background-size: contain;
+      border-radius: 20px;
+      display: inline-block; }
+    .selfbottom .bbox::after {
+      content: '';
+      width: 100%;
+      display: inline-block; }
+
+.cover1 {
+  display: none;
+  width: 100%;
+  height: 300px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto; }
+  .cover1 h1 {
+    display: block;
+    width: 300px;
+    height: 200px;
+    line-height: 100px;
+    position: relative;
+    left: 100px;
+    color: #fff;
+    font-size: 30px; }
+  .cover1 span {
+    display: block;
+    width: 400px;
+    height: 200px;
+    font-size: 32px;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    padding-top: 100px; }
+
+.contact1 {
+  display: none;
+  width: 100%;
+  height: 150px;
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  bottom: 0; }
+  .contact1 .contactbox {
+    max-width: 200px;
+    height: 50px;
+    position: relative;
+    margin: 0 auto; }
+    .contact1 .contactbox .imgbox {
+      display: block;
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      left: 60px;
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 50px;
+      color: #fff;
+      cursor: pointer; }
+    .contact1 .contactbox .phone {
+      width: 32px;
+      height: 32px;
+      position: absolute;
+      top: 9px;
+      left: 20px;
+      background: url("../img/phone.png") no-repeat center center;
+      background-size: 32px 32px; }
+    .contact1 .contactbox .email {
+      width: 32px;
+      height: 32px;
+      position: absolute;
+      top: 9px;
+      left: 20px;
+      background: url("../img/email.png") no-repeat center center;
+      background-size: 32px 32px; }
+    .contact1 .contactbox .address {
+      width: 32px;
+      height: 32px;
+      position: absolute;
+      top: 9px;
+      left: 20px;
+      background: url("../img/address.png") no-repeat center center;
+      background-size: 32px 32px; }
+
+@media screen and (max-width: 400px) {
+  .works {
+    width: 100%;
+    height: auto; }
+    .works .container .bottom {
+      display: none; }
+    .works .worksbottom {
+      display: block; } }
+
+@media screen and (max-width: 760px) {
+  .home {
+    width: 100%;
+    height: 680px; }
+    .home .mask .masktop .cover {
+      display: none; }
+    .home .cover1 {
+      display: block; }
+  .about {
+    width: 100%;
+    height: auto; }
+    .about .container .bottom {
+      display: none; }
+    .about .container .aboutbottom {
+      display: none; }
+    .about .container .aboutbottom1 {
+      display: block; }
+  .works {
+    width: 100%;
+    height: auto; }
+    .works .container .bottom {
+      display: none; }
+    .works .worksbottom {
+      display: block; }
+  .skill {
+    width: 100%;
+    height: auto; }
+    .skill .container .bottom {
+      display: none; }
+  .skillbottom {
+    display: block; }
+  .self {
+    width: 100%;
+    height: auto; }
+    .self .container .bottom {
+      display: none; }
+    .self .container .selfbottom {
+      display: block; }
+    .self .container .contact {
+      display: none; }
+    .self .container .contact1 {
+      display: block; }
+  .tou {
+    width: 100%;
+    height: 50px; }
+    .tou .touinner .toubox {
+      display: none; }
+    .tou .touinner .toubox1 {
+      display: block; } }
+
+@media screen and (max-width: 1000px) {
+  .about {
+    width: 100%;
+    height: auto; }
+    .about .container .bottom {
+      display: none; }
+  .aboutbottom {
+    display: block; }
+  .skill {
+    width: 100%;
+    height: auto; }
+    .skill .container .bottom {
+      display: none; }
+  .skillbottom {
+    display: block; } }

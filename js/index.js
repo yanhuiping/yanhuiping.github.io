@@ -2,17 +2,7 @@ $(function(){
     var jineng=$('.jineng');
 
     $('.jineng').on('mouseenter , mouseleave',function(){
-       /* $(this).parent().find('ul').css({
-            display:'block'
-        })*/
-        // var w=jineng.width();
-        // $('.jineng').css({
-        //     left:w+20
-        // });
-        // $(this).find('ul').stop().slideToggle();
         $(this).find('ul').stop().fadeToggle();
-
-
     })
     console.log(jineng.width());
     var tou=$('.tou');
@@ -47,11 +37,22 @@ $(function(){
             }
 
         }
-        if(arr[1]<stop){
+        /*if(arr[1]<stop){
             $('.tou').addClass('scroll');
         }else if(stop<arr[1]){
 
             $('.tou').removeClass('scroll');
+        }*/
+        if(stop>=arr[1]-50){
+            $('.tou').css({
+                position:'fixed',
+                top:0,
+                left:0
+            })
+        }else {
+            $('.tou').css({
+                position:'relative'
+            })
         }
 
     })
@@ -68,6 +69,14 @@ $(function(){
         })
 
     })
+    $('.tbox span').on('click',function(){
+        var num=$(this).index();
+        $('body').animate({
+            scrollTop:arr[num]
+        }).queue(function(){
+            $(this).dequeue();
+        })
+    })
 
     var foot=$('.foot');
     foot.on('mouseenter ',function(){
@@ -81,6 +90,9 @@ $(function(){
         $(this).find('h3').css({
             display:'none'
         }).removeClass('span').addClass('spanleave');
+    })
+    $('.toubox1').on('click',function(){
+        $('.tbox').slideToggle();
     })
 
 })
